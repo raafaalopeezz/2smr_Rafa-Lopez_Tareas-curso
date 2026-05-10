@@ -1,0 +1,311 @@
+/* ===== COLORES DEL TEMA ===== */
+:root {
+  --bg: rgb(11, 18, 32);
+  --color-principal: rgb(37, 99, 235);
+  --color-principal_transparente: rgb(37, 99, 235,0.5);
+  --color-secundario: #38bdf8;
+  --color-fondo: #f1f5f9;
+  --color-panel: #e6e9dc7f;
+  --color-texto: #1f2933;
+  --color-tercero: rgb(52, 211, 153);
+  /* verde menta */
+  --color-tercero-2: rgb(34, 197, 94);
+  --accent: #38bdf8;
+  /* Fondo avatar */
+  --bk_hd_avatar: rgb(11, 18, 32, 0.72);
+/* Fondo degradado principal*/
+  --fondo_principal: radial-gradient(900px 600px at 10% 10%, rgb(34, 197, 94), transparent 55%),
+    radial-gradient(900px 600px at 15% 0%, rgba(34, 197, 94), transparent 55%),
+    radial-gradient(900px 600px at 30% 90%, #38bdf8, transparent 55%),
+    #2563eb;
+/* Fondo tarjetas */
+  --fondo_tarjetas:
+    radial-gradient(900px 600px at 10% 10%, rgb(34, 197, 94), transparent 55%),
+    radial-gradient(900px 600px at 90% 0%, rgba(167, 139, 250, 0.22), transparent 55%),
+    radial-gradient(900px 600px at 60% 90%, rgba(52, 211, 153, 0.20), transparent 55%),
+    var(--bg);
+    /* Fondo numeros ranking */
+    --fondo_numeros:linear-gradient(135deg, rgba(251, 191, 36, 0.52), rgba(56, 189, 248, 0.16));
+    /* sombra */
+   --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+/* ===== ESTILOS GENERALES ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  max-width: 90%;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+/* ===== HEADER ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  background: var(--fondo_principal);
+  color: white;
+  padding: 15px;
+}
+
+.logo-titulo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+}
+
+.brand h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.brand p {
+  padding: 0;
+  font-size: 0.8rem;
+}
+
+.login {
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  padding: 10px;
+  align-content: center;
+  background-color: var(--color-fondo);
+}
+
+.login:hover {
+  background-color: var(--color-panel);
+  cursor: pointer;
+}
+
+.login a {
+  text-decoration: none;
+  color: var(--color-principal);
+}
+
+.login img {
+  margin-left: 10px;
+  width: 25px;
+}
+
+/* ===== NAV ===== */
+nav {
+  border-radius: 0px 0px 8px 8px;
+  background-color: var(--color-panel);
+  padding: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav li {
+
+  padding: 10px 20px;
+}
+
+nav li:first-child, nav li:hover {
+  border-radius: 20px;
+  background-color: var(--color-principal_transparente);
+}
+nav li:first-of-type a, nav li:hover a {
+  color: white;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--color-principal);
+  font-weight: bold;
+}
+
+/* ===== MAIN ===== */
+main {
+  margin: 25px 0;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1.5fr 1fr;
+  gap: 15px;
+}
+
+/* ===== PANEL ===== */
+.panel {
+  background-color: var(--color-panel);
+  box-shadow: var(--shadow);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.panel h2 {
+  margin-bottom: 15px;
+}
+
+/* ===== FORMULARIO ===== */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input,
+select {
+  padding: 8px;
+  border: 1px solid var(--color-secundario);
+  border-radius: 8px;
+}
+
+input:focus,
+select:focus {
+  outline-color: var(--color-tercero);
+}
+button {
+  padding: 10px;
+  background-color: var(--color-principal);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+button:hover {
+  background-color: var(--accent);
+}
+
+/* ===== TARJETAS ===== */
+.seccion_central{
+  grid-column: 2 / 3;
+  grid-row: 1 /3;
+}
+
+.tarjetas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.tarjeta {
+  background: var(--fondo_tarjetas);
+  color: var(--color-fondo);
+  border: 1px solid var(--color-secundario);
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+.hd_avatar {
+  padding: 15px;
+  background: var(--bk_hd_avatar);
+  border-radius: 8px 8px 0 0;
+}
+
+.hd_avatar h3 {
+  margin-top: 0.5rem;
+}
+
+.tarjeta ul {
+  margin: 10px 40px;
+  text-align: left;
+}
+
+.tarjeta li {
+  margin-top: 5px;
+}
+
+.tarjeta button {
+  margin: 12px;
+}
+
+
+
+/* ===== ASIDE ===== */
+aside {
+  background: var(--fondo_principal);
+  color: var(--color-fondo);
+  display: block;
+  align-items: center;
+}
+
+aside li {
+  padding: 8px;
+  margin: 5px 0;
+  list-style: none;
+}
+
+.badge {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 100%;
+  padding: 7px;
+  margin: 0 0.7rem 0 0;
+  background-color: var(--accent);
+  list-style: none;
+  border-radius: 10px;
+  background: var(--fondo_numeros)
+
+}
+
+
+
+.contenedor-4, .contenedor-5 {
+  align-content: center;
+  justify-items: center;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 15px;
+  border-radius: 8px 8px 0px 0px ;
+  background-color: var(--color-principal);
+  color: white;
+  text-align: center;
+  padding: 12px;
+}
+
+footer a {
+  text-decoration: none;
+  color: var(--color-tercero-2);
+}
+footer a:hover {
+  text-decoration: none;
+  color: var(--color-tercero);
+  font-weight: bold;
+}
+
+/* ===== RESPONSIVE BÁSICO ===== */
+@media (max-width: 900px) {
+  main {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+.seccion_central{
+  grid-column: auto /auto;
+  grid-row: auto /auto;
+}
+  .tarjetas {
+    grid-template-columns: 1fr;
+  }
+}

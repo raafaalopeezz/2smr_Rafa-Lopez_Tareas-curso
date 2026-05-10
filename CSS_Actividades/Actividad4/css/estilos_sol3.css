@@ -1,0 +1,157 @@
+/* ==============================
+      VARIABLES GLOBALES
+================================ */
+:root {
+    --padding-container: 50px 0; /* Padding vertical común para contenedores */
+}
+
+/* ==============================
+      RESETEO GLOBAL
+   Eliminamos márgenes y padding
+   y usamos box-sizing moderno
+================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* El padding y el borde se incluyen dentro del ancho/alto */
+}
+
+/* ==============================
+      CONTENEDOR GENERAL
+   Centra contenido y fija anchos
+================================ */
+.mi_contenedor {
+    width: 90%;                 /* Ocupa el 90% del ancho del viewport */
+    max-width: 1400px;          /* No crece más allá de 1400px */
+    margin: 0 auto;             /* Centrado horizontal */
+    overflow: hidden;           /* Oculta el desbordamiento interno */
+    padding: var(--padding-container); /* Padding tomado de la variable global */
+}
+
+/* ==============================
+      MENÚ SUPERIOR (NAV)
+================================ */
+.mi_menu {
+    /* background-color: aquamarine; */
+    display: flex;                 /* Usamos flexbox para alinear elementos */
+    flex-flow: row nowrap;         /* Dirección horizontal, sin salto de línea */
+    height: 100px;                 /* Altura fija del menú */
+    align-items: center;           /* Centra verticalmente los elementos */
+    justify-content: space-between;/* Deja espacio uniforme entre logo, menú y redes */
+    --padding-container: 0;        /* Sobrescribe el padding para este contenedor */
+    border-bottom: solid white 2px;/* Línea inferior blanca para separar del header */
+}
+
+/* Logo del menú */
+.logo {
+    /* background-color: red; */
+    max-width: 90px;  /* Tamaño máximo del logo */
+    min-width: 60px;  /* Tamaño mínimo para evitar deformaciones */
+}
+
+/* Menú de navegación central */
+.menu_nav {
+    /* background-color: rgb(142, 142, 223); */
+    flex-grow: 10;              /* El bloque crece más que los demás */
+    display: flex;              /* Mostramos los enlaces en fila */
+    justify-content: space-evenly; /* Distribución uniforme */
+    font-size: 1.2rem;          /* Tamaño del texto */
+}
+
+/* Contenedor de iconos sociales */
+.menu_social {
+    /* background-color: antiquewhite; */
+    display: flex;                     /* Flexbox para alinear iconos */
+    justify-content: center;           /* Centrado inicial (sobrescrito abajo) */
+    flex-grow: 1;                      /* Crece un poco, pero menos que el menú */
+    justify-content: space-evenly;     /* Distribuye iconos uniformemente */
+}
+
+/* Tamaño de los iconos sociales */
+.menu_social a img {
+    width: 32px;    /* Tamaño base de los iconos */
+    min-width: 28%; /* Evita que se reduzcan demasiado */
+}
+
+/* ==============================
+      HEADER PRINCIPAL
+   Fondo grande con clip-path
+================================ */
+.mi_header {
+    width: 100%;          /* Ocupa todo el ancho */
+    height: 100vh;        /* Ocupa toda la altura del viewport */
+    min-height: 600px;    /* Nunca será más bajo de 600px */
+    max-height: 800px;    /* Ni más alto de 800px para evitar headers gigantes */
+    position: relative;   /* Necesario para que ::before se posicione dentro */
+}
+
+/* Imagen de fondo y recorte inferior en pico */
+.mi_header::before {
+    content: "";              /* Crea el pseudo-elemento */
+    position: absolute;       /* Posicionamiento dentro de .mi_header */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background-image: 
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,0.10) 0%, /* Degradado suave arriba */
+            rgba(0,0,0,0.5) 100% /* Más oscuro abajo */
+        ),
+        url("../img/fondo_header3.jpg"); /* Imagen de fondo */
+    background-size: cover;         /* La imagen cubre todo el espacio */
+    
+    clip-path: polygon(
+        100% 0%, 100% 85%, 50% 95%, 0 85%, 0 0
+    ); /* Recorta la imagen con una forma en V */
+    
+    z-index: -1;                    /* Queda detrás del contenido del header */
+}
+
+/* ==============================
+      ESTILOS DEL MENÚ
+================================ */
+.menu_nav a {
+    text-decoration: none;  /* Quitamos subrayado */
+    color: #FFFFFF;         /* Texto en blanco */
+}
+
+/* ==============================
+      CONTENIDO DEL HEADER
+================================ */
+.header_container {
+    height: 75%;            /* Ocupa el 75% del header */
+    display: flex;          /* Flexbox para centrar contenido */
+    flex-direction: column; /* Elementos apilados en columna */
+    justify-content: center;/* Centrado vertical */
+    align-items: center;    /* Centrado horizontal */
+    color: white;           /* Todo el texto en blanco */
+    text-align: center;     /* Texto centrado */
+    max-width: 800px;       /* Limita el ancho del bloque de texto */
+}
+
+/* Título principal */
+.header_title {
+    font-size: 3rem;       /* Tamaño grande */
+    padding: 20px 0;       /* Espacio superior e inferior */
+}
+
+/* Párrafo descriptivo */
+.header_paragraph {
+    font-size: 1.2rem;     /* Tamaño del texto */
+    line-height: 2rem;     /* Espacio entre líneas */
+    margin-bottom: 25px;   /* Separación respecto al botón */
+    max-width: 70%;        /* Limita ancho para una lectura cómoda */
+}
+
+/* Botón de llamada a la acción */
+.cta {
+    display: inline-block;   /* Permite padding sin comportarse como bloque */
+    background-color: blue;  /* Color del fondo del botón */
+    color: white;            /* Texto blanco */
+    padding: 13px 30px;      /* Tamaño interno del botón */
+    border-radius: 32px;     /* Bordes redondeados estilo píldora */
+    text-decoration: none;   /* Sin subrayado */
+}

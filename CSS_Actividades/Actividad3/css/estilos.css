@@ -1,0 +1,245 @@
+<<<<<<< HEAD
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(245, 253, 185);
+    width: 80%;
+    margin: 0 auto;
+}
+h1{
+    text-align: center;
+    font-size: 2.5em;
+    color: blue;
+    font-family: "Audiowide", sans-serif;
+}
+
+/* Selector de id */
+#destacado {
+    background-color: #ffffcc;
+    border: 2px dashed orange;
+    padding: 10px;
+}
+
+/* Navegación */
+nav ul {
+    list-style: none;
+    padding: 0;
+    background-color: rgb(240, 183, 183);
+    overflow: hidden;
+}
+
+nav li a {
+    float: left;
+    /*display: inline-block;*/
+    text-align: center;
+    text-decoration: none;
+    color: blue;
+    padding: 14px 16px;
+}
+
+nav a:hover {
+    color: red;
+    background-color: #eee;
+}
+
+
+/* Selector de elemento */
+p {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.centrado{
+    text-align: center;
+    width: 75%;
+    display: inline-block;
+    background-color: aqua;
+    vertical-align: top;
+}
+aside
+{
+    text-align: center;
+    width:25%;
+    float: right;
+}
+/* Selector de clase */
+.caja {
+    display: inline-block;
+    width: 40%;
+    text-align: left;
+    border: 2px solid blue;
+    padding: 15px;
+    margin: 20px;
+    vertical-align: top;  /* ↑↑↑ IMPORTANTE */
+}
+
+
+/* Selector descendiente */
+.caja p {    
+    color: darkgreen;
+}
+
+/* Segundo párrafo dentro de la caja */
+.caja p:nth-of-type(2) {
+    clear: both; /* fuerza a empezar debajo del flotado anterior */
+    padding: 5px;
+}
+
+/* Pseudoselector: primer párrafo dentro de .caja */
+.caja p:first-child {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Imagen flotante izquierda */
+.izquierda {
+    float: left;
+    margin-right: 10px;
+    width: 20%;
+}
+
+/* Imagen flotante derecha */
+.derecha {
+    float: right;
+    margin-left: 10px;
+    width:20%;
+}
+footer{
+    clear: both;
+}
+/* Pseudoselector: último párrafo del pie */
+footer p:last-child {
+    
+    font-style: italic;
+    color: gray;
+}
+=======
+/* Importamos fuente Audiowide de google api */
+@import url('https://fonts.googleapis.com/css?family=Audiowide');
+
+:root {
+    --color_fondo_principal: #f3fdbc;
+    --color_fondo_menu_nav: #f1b4b8;
+    --color_titulos: #2d07fb;
+    --color_borde_discontinuo: #ff9e26;
+    --color_fonfo_enlace_selec: #eeeeee;
+    --color_enlace_selec: #ff0000;
+}
+*{
+    box-sizing: border-box;
+}
+body {  
+  /* Hace que las propiedades width y height 
+  incluyen el borde y relleno. */
+  width: 80%;
+  background-color: var(--color_fondo_principal);
+  /* Para centrar contenedores en la página horizontalmente */
+  margin: 0 auto;
+}
+
+header h1 {
+    /* Fuente Audiowide para los h1 dentro de la cabecera */
+    font-family: AudioWide;
+    /* Centrar texto de h1 */
+    text-align: center;
+    /* Color de fuente */
+    color: var(--color_titulos);
+}
+
+p {
+    /* Todos los párrafos con fuente Arial */
+    font-family: Arial;
+}
+
+/* Menú de navegación de la cabecera */
+header nav {
+    background-color: var(--color_fondo_menu_nav);
+}
+
+header nav ul {
+    /* Cambio de relleno de bloque lista */
+    padding-left: 0px;
+}
+
+header nav li {
+    /* Quitamos el punto de la viñeta */
+    list-style-type: none;
+    float: left;    
+    margin-left: 0;
+    padding: 16px 20px 16px 20px;
+}
+
+header nav li:hover {
+    /* Cambio de fondo y color de fuente cuando pasa el cursor por encima */
+    background-color: var(--color_fonfo_enlace_selec);
+    color: var(--color_enlace_selec);
+    transition: background-color 0.3s;
+}
+
+/* Enlaces de la barra de navegación sin subrayar */
+header nav a {
+    /* Enlaces sin subrayar */
+    text-decoration: none;
+}
+/* Generar un bloque invisible para cortar el float */
+header nav::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+#destacado {
+    /* Borde líneas discontínuas color naranja */
+    border: dashed 2px var(--color_borde_discontinuo);
+    padding: 10px;
+    background-color: #ffffcc;
+}
+.centrado {    
+    margin: 0 auto;    
+    display: inline-block;
+}
+.caja {
+    border: solid 2px blue;
+    display: inline-block;
+    margin: 15px;    
+    vertical-align: middle; 
+    color: green;
+    padding: 15px;
+}
+
+.caja img {
+    width: 100px;
+    margin-right: 10px;
+}
+
+.caja p:first-child {
+    font-weight: bold;
+    text-decoration: underline;    
+}
+.izquierda {
+    float: left;
+}
+
+.caja p:nth-of-type(2) {
+    clear: both;
+    padding: 5px;
+}
+.derecha {
+    float: right;
+    margin-right: 15px;
+}
+
+footer p:last-child {
+    font-style: italic;
+    color: grey;
+}
+
+aside {
+    float: right;
+
+}
+
+>>>>>>> cb6b1b7059173639aff214b420f64010af74b614

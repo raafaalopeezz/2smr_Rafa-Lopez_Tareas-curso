@@ -1,0 +1,622 @@
+rgba(255, 255, 255, 0.10);<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team ToDo+</title>
+
+  <style>
+    /* ========== THEME (fresco, moderno) ========== */
+    :root {
+      --bg: #0b1220;
+      --panel: rgba(255, 255, 255, 0.06);
+      --panel-strong: rgba(255, 255, 255, 0.10);
+      --text: rgba(255, 255, 255, 0.92);
+      --muted: rgba(255, 255, 255, 0.68);
+      --line: rgba(255, 255, 255, 0.14);
+
+      --primary: #34d399; /* verde menta */
+      --primary-2: #22c55e;
+      --accent: #38bdf8; /* azul cielo */
+      --accent-2: #a78bfa; /* violeta suave */
+      --warn: #fbbf24;
+
+      --radius: 18px;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background:
+        radial-gradient(900px 600px at 10% 10%, rgba(56, 189, 248, 0.25), transparent 55%),
+        radial-gradient(900px 600px at 90% 0%, rgba(167, 139, 250, 0.22), transparent 55%),
+        radial-gradient(900px 600px at 60% 90%, rgba(52, 211, 153, 0.20), transparent 55%),
+        var(--bg);
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 22px 16px 34px;
+    }
+
+    /* ========== HEADER ========== */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 18px;
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 220px;
+    }
+
+    .logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.35), transparent 55%),
+        linear-gradient(135deg, var(--accent), var(--primary));
+      box-shadow: 0 12px 30px rgba(52, 211, 153, 0.20);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .logo svg {
+      width: 22px;
+      height: 22px;
+      opacity: 0.95;
+      filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.35));
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 1.25rem;
+      line-height: 1.1;
+      letter-spacing: 0.2px;
+    }
+
+    .brand p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--muted);
+      font-size: 0.92rem;
+      white-space: nowrap;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 0 6px rgba(52, 211, 153, 0.12);
+    }
+
+    /* ========== NAV ========== */
+    nav {
+      margin: 18px 0 12px;
+      padding: 14px 12px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(10px);
+    }
+
+    nav ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none; /* pedido */
+      display: flex;
+      justify-content: center; /* centrada */
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none; /* pedido */
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: rgba(255, 255, 255, 0.86);
+      background: transparent;
+      transition: 160ms ease;
+    }
+
+    nav a:hover {
+      border-color: rgba(255, 255, 255, 0.18);
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateY(-1px);
+    }
+
+    nav a.active {
+      border-color: rgba(56, 189, 248, 0.35);
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.16), rgba(52, 211, 153, 0.12));
+    }
+
+    /* ========== MAIN GRID (3 contenedores) ========== */
+    main {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr 0.75fr;
+      gap: 16px;
+      align-items: start;
+      margin-top: 14px;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: var(--radius);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(10px);
+      overflow: hidden;
+    }
+
+    .panel-header {
+      padding: 16px 16px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent);
+    }
+
+    .panel-header h2 {
+      margin: 0;
+      font-size: 1.05rem;
+      letter-spacing: 0.2px;
+    }
+
+    .panel-header p {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .panel-body {
+      padding: 16px;
+    }
+
+    /* ========== FORM ========== */
+    form {
+      display: grid;
+      gap: 12px;
+    }
+
+    label {
+      font-size: 0.9rem;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    select,
+    input[type="text"] {
+      width: 100%;
+      padding: 12px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(10, 16, 28, 0.55);
+      color: var(--text);
+      outline: none;
+      transition: 160ms ease;
+    }
+
+    select:focus,
+    input[type="text"]:focus {
+      border-color: rgba(56, 189, 248, 0.55);
+      box-shadow: 0 0 0 5px rgba(56, 189, 248, 0.10);
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .btn {
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.22), rgba(52, 211, 153, 0.18));
+      color: rgba(255, 255, 255, 0.92);
+      padding: 12px 14px;
+      border-radius: 12px;
+      font-weight: 650;
+      letter-spacing: 0.2px;
+      transition: 160ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(52, 211, 153, 0.45);
+    }
+
+    .hint {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ========== CARDS ========== */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .card {
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: var(--panel-strong);
+      border-radius: 16px;
+      padding: 14px;
+      display: grid;
+      gap: 12px;
+      transition: 160ms ease;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(167, 139, 250, 0.35);
+    }
+
+    .profile {
+      display: grid;
+      justify-items: center;
+      gap: 8px;
+      padding-top: 4px;
+    }
+
+    .avatar {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255, 255, 255, 0.20);
+      box-shadow: 0 14px 26px rgba(0, 0, 0, 0.32);
+    }
+
+    .name {
+      margin: 0;
+      font-weight: 750;
+      letter-spacing: 0.2px;
+    }
+
+    .tasks {
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(255, 255, 255, 0.84);
+      display: grid;
+      gap: 6px;
+    }
+
+    .tasks li {
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .card .btn {
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      font-weight: 650;
+    }
+
+    .card .btn:hover {
+      border-color: rgba(56, 189, 248, 0.45);
+    }
+
+    /* ========== ASIDE RANKING ========== */
+    .ranking {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .rank-item {
+      display: grid;
+      grid-template-columns: 34px 1fr auto;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .badge {
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: linear-gradient(135deg, rgba(251, 191, 36, 0.22), rgba(56, 189, 248, 0.16));
+    }
+
+    .rank-name {
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .rank-meta {
+      color: var(--muted);
+      font-size: 0.88rem;
+      white-space: nowrap;
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--muted);
+      text-align: center;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 980px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .pill {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <!-- CABECERA -->
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <!-- icono simple tipo "check" -->
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.3" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div>
+          <h1>Team ToDo+</h1>
+          <p>Gestión ágil de tareas · Tienda de informática</p>
+        </div>
+      </div>
+
+      <div class="pill">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Estado: Operativo · Panel de equipo</span>
+      </div>
+    </header>
+
+    <!-- NAVEGACIÓN -->
+    <nav aria-label="Navegación principal">
+      <ul>
+        <li><a class="active" href="#">Inicio</a></li>
+        <li><a href="#">Historial tareas</a></li>
+        <li><a href="#">Usuarios</a></li>
+        <li><a href="#">Busca tareas</a></li>
+      </ul>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL (3 contenedores) -->
+    <main>
+      <!-- 1) Contenedor: Formulario asignar tareas -->
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Asignar tarea</h2>
+          <p>Elige empleado, tarea y/o añade una nueva.</p>
+        </div>
+
+        <div class="panel-body">
+          <form>
+            <div class="row">
+              <div>
+                <label for="empleado">Empleado</label>
+                <select id="empleado" name="empleado">
+                  <option value="">Selecciona un empleado</option>
+                  <option>Alex</option>
+                  <option>Lucía</option>
+                  <option>Hugo</option>
+                  <option>Noa</option>
+                  <option>Mario</option>
+                  <option>Sara</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="tarea">Tarea (predefinida)</label>
+                <select id="tarea" name="tarea">
+                  <option value="">Selecciona una tarea</option>
+                  <option>Montaje de PC gaming (revisión final)</option>
+                  <option>Instalar Windows + drivers + actualizaciones</option>
+                  <option>Test de estrés y temperaturas (15 min)</option>
+                  <option>Limpieza interna de torre y gestión de cableado</option>
+                  <option>Preparar presupuesto de componentes para cliente</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="nueva">Añadir tarea nueva</label>
+                <input id="nueva" name="nueva" type="text" placeholder="Ej: Etiquetar periféricos y reponer stock" />
+                <p class="hint">Consejo: escribe tareas concretas y medibles.</p>
+              </div>
+
+              <button class="btn" type="button">Añadir</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- 2) Contenedor: Tarjetas empleados y tareas -->
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Equipo · Tareas activas</h2>
+          <p>Vista rápida por empleado (máx. 4 tareas).</p>
+        </div>
+
+        <div class="panel-body">
+          <div class="cards-grid">
+            <!-- Tarjeta 1 -->
+            <article class="card">
+              <div class="profile">
+                <img class="avatar" src="https://i.pravatar.cc/160?img=12" alt="Avatar de Alex">
+                <p class="name">Alex</p>
+              </div>
+              <ul class="tasks">
+                <li>Montaje PC oficina</li>
+                <li>Instalar drivers GPU</li>
+                <li>Test de estrés 10 min</li>
+              </ul>
+              <button class="btn" type="button">Ver más</button>
+            </article>
+
+            <!-- Tarjeta 2 -->
+            <article class="card">
+              <div class="profile">
+                <img class="avatar" src="https://i.pravatar.cc/160?img=47" alt="Avatar de Lucía">
+                <p class="name">Lucía</p>
+              </div>
+              <ul class="tasks">
+                <li>Presupuesto para cliente</li>
+                <li>Revisión de stock SSD</li>
+                <li>Actualizar precios en vitrina</li>
+                <li>Preparar pedido online</li>
+              </ul>
+              <button class="btn" type="button">Ver más</button>
+            </article>
+
+            <!-- Tarjeta 3 -->
+            <article class="card">
+              <div class="profile">
+                <img class="avatar" src="https://i.pravatar.cc/160?img=33" alt="Avatar de Hugo">
+                <p class="name">Hugo</p>
+              </div>
+              <ul class="tasks">
+                <li>Limpieza interior + cableado</li>
+                <li>Actualizar BIOS (si procede)</li>
+                <li>Comprobar temperaturas</li>
+              </ul>
+              <button class="btn" type="button">Ver más</button>
+            </article>
+
+            <!-- Tarjeta 4 -->
+            <article class="card">
+              <div class="profile">
+                <img class="avatar" src="https://i.pravatar.cc/160?img=5" alt="Avatar de Noa">
+                <p class="name">Noa</p>
+              </div>
+              <ul class="tasks">
+                <li>Instalar Windows + Office</li>
+                <li>Configurar cuentas usuario</li>
+                <li>Prueba de puertos USB</li>
+              </ul>
+              <button class="btn" type="button">Ver más</button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3) Aside: Ranking -->
+      <aside class="panel">
+        <div class="panel-header">
+          <h2>Ranking</h2>
+          <p>Top 6: más tareas completadas en menos tiempo.</p>
+        </div>
+
+        <div class="panel-body">
+          <ol class="ranking">
+            <li class="rank-item">
+              <span class="badge">1</span>
+              <p class="rank-name">Lucía</p>
+              <span class="rank-meta">18 tareas · 2h 10m</span>
+            </li>
+            <li class="rank-item">
+              <span class="badge">2</span>
+              <p class="rank-name">Alex</p>
+              <span class="rank-meta">16 tareas · 2h 25m</span>
+            </li>
+            <li class="rank-item">
+              <span class="badge">3</span>
+              <p class="rank-name">Hugo</p>
+              <span class="rank-meta">14 tareas · 2h 40m</span>
+            </li>
+            <li class="rank-item">
+              <span class="badge">4</span>
+              <p class="rank-name">Noa</p>
+              <span class="rank-meta">13 tareas · 2h 58m</span>
+            </li>
+            <li class="rank-item">
+              <span class="badge">5</span>
+              <p class="rank-name">Mario</p>
+              <span class="rank-meta">11 tareas · 3h 05m</span>
+            </li>
+            <li class="rank-item">
+              <span class="badge">6</span>
+              <p class="rank-name">Sara</p>
+              <span class="rank-meta">10 tareas · 3h 22m</span>
+            </li>
+          </ol>
+        </div>
+      </aside>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      Nombre del Alumno — Copyright © 2026
+    </footer>
+  </div>
+</body>
+
+</html>

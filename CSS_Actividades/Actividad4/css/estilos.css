@@ -1,0 +1,54 @@
+/* Variables de estilos */
+:root {
+    --padding-container: 50px 0;
+}
+
+/* Reseteamos margenes, rellenos y borde y padding dentro de las dimensiones del elemento */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.mi_header {
+    background-image: url(../img/fondo_header.jpg);
+}
+/* contenedores navegación y section */
+.mi_contenedor {
+    width: 90%;
+    max-width: 1200px;    
+    margin: 0 auto; /* Centramos horizontamente */
+    overflow: hidden; /* En caso de que se salga ndel contenedor se oculta, no distorsiona el aspecto*/
+    padding: var(--padding-container);
+}
+
+.mi_menu {
+    /* background-color: aquamarine; */
+    display: flex;
+    flex-flow: row nowrap;
+    height: 100px;
+    align-items: center;
+    justify-content: space-between;
+    --padding-container: 0;
+}
+
+.logo {
+    /* background-color: red; */
+    min-width: 100px;
+}
+.menu_nav {
+    /* background-color: rgb(142, 142, 223); */
+    flex-grow: 2;
+    display: flex;
+    justify-content: space-around;
+}
+.menu_social {
+    /* background-color: antiquewhite; */
+    display: flex;
+    justify-content: center;
+   
+    flex-grow: 1;
+    
+}
+
+
+

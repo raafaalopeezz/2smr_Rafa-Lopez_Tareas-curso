@@ -1,0 +1,132 @@
+ body {
+   font-family: system-ui, Arial;
+   padding: 16px;
+   background-color: #242323;
+   color: #ddd;
+ }
+ .titulo {
+  font-size: 3.2rem;
+  text-align: center;
+ }
+
+ section {
+   color: #242323;
+   border-radius: 8px;
+   background-color: bisque;
+   padding: 20px;
+ }
+
+ form {
+   display: grid;
+   gap: 10px;
+   max-width: 560px;
+ }
+
+ .fila {
+   display: grid;
+   gap: 8px;
+   grid-template-columns: 1fr 1fr;
+ }
+
+ label {
+   display: grid;
+   gap: 6px;
+ }
+
+ select,
+ input,
+ button {
+   padding: 10px;
+   font: inherit;
+ }
+
+ .tarea-wrap {
+   display: grid;
+   gap: 8px;
+   grid-template-columns: 1fr 1fr;
+ }
+
+.contenedor_avatar {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  border-bottom: solid 2px #242323;
+  padding: 5px;
+  margin-bottom: 15px;
+}
+ .avatar {
+  max-width: 75px;
+  border-radius: 8px;
+ }
+
+ .familia {
+   margin-top: 18px;
+   display: flex;
+   gap: 14px;
+ }
+
+ .miembro {
+   flex: 1 1 auto;
+   border: 1px solid #ddd;
+   border-radius: 10px;
+   padding: 12px;
+ }
+
+ .miembro:has(.Vera) {
+   background-color: mediumorchid;
+ }
+
+ .miembro:has(.Pablo) {
+   background-color: greenyellow;
+ }
+
+ .miembro:has(.Papá) {
+   background-color: rgb(130, 130, 231);
+ }
+
+ .miembro h3 {
+   margin: 0 0 10px;
+   font-size: 2rem;
+ }
+
+ ul {
+   margin: 0;
+   padding: 0;
+   display: grid;
+   gap: 8px;
+ }
+
+ li {
+   list-style: none;
+   display: grid;
+   grid-template-columns: auto 1fr auto;
+   gap: 10px;
+   align-items: center;
+   font-size: 1.5rem;
+ }
+
+ .txt {
+   cursor: pointer;
+ }
+
+ .hecha .txt {
+   text-decoration: line-through;
+   opacity: .65;
+ }
+
+ .btn-del {
+   border: 1px solid #ddd;
+   background: transparent;
+   padding: 6px 10px;
+   border-radius: 8px;
+   cursor: pointer;
+ }
+
+ .btn-del:hover {
+   background: #f5f5f5;
+ }
+
+ .pill {
+   font-size: 12px;
+   opacity: .7;
+ }

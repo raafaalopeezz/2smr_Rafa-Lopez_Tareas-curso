@@ -1,0 +1,220 @@
+/*DEFINICIÓN DE VARIABLES DE COLORES*/
+:root {
+    --primary-color: #076896;
+    --primary-color_transparencia: #07689666;
+    --boton_activo:	#004466;
+    --color-fondo_caja: #eaf6fb;
+    --color-borde-caja: #006699;
+    --secondary-color: #f0fff0;
+    --color-borde-redondeado: #333;
+}
+
+body {
+    font-family: Arial, sans-serif;    
+    line-height: 1.4;
+}
+
+header, main, footer {    
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    border-bottom: 8px;
+    border-radius: 0 0 4px 4px;
+    padding-top: 0.5rem;
+    padding-bottom: 0.7rem;
+    box-shadow: 0 0.2rem 0.2rem rgb(4, 28, 54);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 0.5rem;
+    padding:  0.3rem 0.6rem;    
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+section {
+    background-color: white;
+    box-shadow: 0 2px 4px rgb(65, 59, 59);
+    border-radius: 8px;
+    margin: 1rem 0;
+    padding: 1rem;
+}
+
+section h2 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Pseudoclases*/
+.btn, .btn-sec {
+   /*border: 2px solid #006699;*/
+   border: 2px solid var(--primary-color);
+   border-radius: 4px;
+   background-color: white;
+   padding: 0.4rem 0.8rem;
+   margin: 0.3rem 0.3rem 0.6rem 0;
+   color: var(--primary-color);
+   text-decoration: none;
+   cursor: pointer;
+}
+.btn:hover, .btn-sec:hover   {
+    background-color: var(--primary-color_transparencia);
+    transition:  background-color 0.5s;
+}
+
+.btn:active, .btn-sec:active   {
+    background-color: var(--boton_activo);
+}
+
+input {
+    border: 1px solid #999;
+    padding: 0.3rem;
+    margin-top: 0.3rem;
+    border-radius: 4px;
+}
+
+input:focus {
+    outline: 1px solid var(--primary-color);    
+}
+
+/* Estilos para la lista */
+
+/*  */
+.lista-demo { 
+    margin-top: 0.8rem;
+    padding-left: 1.2rem;
+}
+
+.lista-demo li {
+    margin: 0.2rem 0;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+.lista-demo li:first-child {
+    font-weight: bold;
+    color: var(--boton_activo);
+    opacity: 1;
+}
+
+.lista-demo li:hover {
+    opacity: 1;
+}
+
+/* Caja	(.caja):
+fondo	azul	claro	(#eaf6fb),	
+borde	3px	sólido	#006699,	
+bordes	redondeados	(8px),	
+con	1rem	de	margen	
+y	1rem	de	relleno. */
+.caja {
+    background-color: var(--color-fondo_caja);
+    border: 3px solid var(--color-borde-caja);
+    border-radius: 8px;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+/* span	que	es	hijo directo	de	#contenedor	
+fondo azul muy claro (#d0f0f5),	
+borde	1px	sólido	#006699,	
+relleno 0.3rem,	
+margen	inferior	0.3rem */
+#contenedor > span {
+    /* inline-block: Para que podamos ponerle margen 
+    - propiedades de dimensiones  */
+    display: inline-block;
+    background-color: var(--color-fondo_caja);
+    border: 1px solid var(--color-borde-caja);
+    padding: 0.3rem;
+    margin-bottom: 1.3rem;
+}
+
+/* párrafo hermano	inmediato	de	#contenedor →	
+fondo	verde	claro	(#f0fff0),	
+borde	izquierdo	4px	sólido	verde,	
+relleno	izquierdo 0.4rem */
+#contenedor + p {
+    background-color: var(--secondary-color);
+    border-left: 4px solid green;
+    padding-left: 0.4rem;
+}
+
+/* Aplicar estilos comunes a las cajas
+  Tamaño:	ancho	100px,	
+  alto	80px,	
+  borde	3px	sólido	#333,	
+  texto	centrado	vertical	y	horizontal.
+  */
+.box {
+    float: left;
+    width: 100px;
+    height: 80px;
+    border: 3px solid var(--color-borde-redondeado);
+    text-align: center;
+    line-height: 80px;
+    font-weight: bold;   
+    margin-right: 20px;
+}
+
+/*.b1	→	fondo	rojo	claro	(#ff9999),	
+olo	esquina	superior	izquierda	redondeada	(16px).  */
+
+.b1 {
+    background-color: #ff9999;
+    border-radius: 16px 0 0 0;
+
+}
+/*.b2	→	fondo	amarillo	(#ffcc66),	
+solo	esquina	superior	derecha	redondeada	(16px).
+		  */
+.b2 {
+    background-color: #ffcc66;
+    border-top-right-radius: 16px ;
+}
+
+
+/*  - .b3	→	fondo	verde	claro	(#99cc99
+todas	las	esquinas	redondeadas	(16px).*/
+.b3 {
+    background-color: #99cc99;    
+    border-radius: 16px;
+}
+
+
+.fila::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+
+/* FOOTER
+    Texto alineado en el centro
+    fondo claro
+    borde superior
+    letra más pequeña que la original */
+
+
+footer {
+    text-align: center;
+    font-size: 0.9rem;
+    background-color: #eee;
+    padding: 1rem;
+    border-top: 3px solid var(--primary-color);
+    border-radius: 8px 8px 0 0;    
+}
+
+
+
+

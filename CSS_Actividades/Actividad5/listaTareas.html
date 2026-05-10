@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tareas del hogar</title>
+  <link rel="stylesheet" href="./css/estilos.css">
+</head>
+
+<body>
+  <header>
+    <h1 class="titulo">Tareas del hogar</h1>
+  </header>
+  <main>
+    <section class="section_form">
+      <form id="formTareas">
+        <div class="fila">
+          <label>
+            Miembro
+            <select id="miembro">
+              <option value="" selected disabled>Elige…</option>
+              <option>Vera</option>
+              <option>Pablo</option>
+              <option>Papá</option>
+            </select>
+          </label>
+
+          <label>
+            Tarea (elige o escribe una nueva)
+            <div class="tarea-wrap">
+              <select id="tareaSelect">
+                <option value="" selected disabled>Elige…</option>
+                <option>Tender la ropa</option>
+                <option>Poner lavadora</option>
+                <option>Sacar la basura</option>
+                <option>Poner/recoger mesa</option>
+              </select>
+              <input id="tareaNueva" type="text" placeholder="Otra tarea…" />
+            </div>
+            <span class="pill">Si escribes una tarea nueva, se guardará como opción.</span>
+          </label>
+        </div>
+
+        <button type="submit">Añadir</button>
+      </form>
+    </section>
+
+
+    <section id="contenedorFamilia" class="familia" aria-live="polite"></section>
+  </main>
+  <script src="js/script.js"></script>
+
+</body>
+
+</html>

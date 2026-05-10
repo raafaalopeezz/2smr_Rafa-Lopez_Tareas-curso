@@ -1,0 +1,130 @@
+/* Variables de estilos (se pueden reutilizar en todo el documento) */
+:root {
+    --padding-container: 50px 0;
+}
+
+/* Reseteamos márgenes, rellenos y hacemos que el padding/border cuenten dentro del ancho/alto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Contenedor genérico para centrar contenido y limitar su ancho */
+.mi_contenedor {
+    width: 90%;              /* Ocupa el 90% del ancho disponible */
+    max-width: 1200px;       /* No sobrepasa los 1200px */
+    margin: 0 auto;          /* Centramos horizontalmente */
+    overflow: hidden;        /* Si algo se sale del contenedor, se oculta */
+    padding: var(--padding-container); /* Usamos el padding definido en la variable */
+}
+
+/* Barra de navegación principal */
+.mi_menu {
+    /* background-color: aquamarine; */
+    display: flex;               /* Usamos flexbox para alinear elementos en fila */
+    flex-flow: row nowrap;       /* Dirección horizontal, sin salto de línea */
+    height: 100px;               /* Altura fija de la barra */
+    align-items: center;         /* Centra verticalmente los elementos dentro del nav */
+    justify-content: space-between; /* Deja espacio entre logo, menú y redes */
+    --padding-container: 0;      /* Sobrescribimos el padding a 0 para este contenedor */
+}
+
+/* Contenedor del logo */
+.logo {
+    /* background-color: red; */
+    max-width: 90px;   /* El logo no crece más de 90px */
+    min-width: 60px;   /* Pero tampoco se hace más pequeño de 60px */
+}
+
+/* Menú de navegación (los enlaces centrales) */
+.menu_nav {
+    /* background-color: rgb(142, 142, 223); */
+    flex-grow: 10;                  /* Este bloque crece mucho para ocupar espacio sobrante */
+    display: flex;                  /* Colocamos los enlaces en fila */
+    justify-content: space-evenly;  /* Espacio uniforme entre los enlaces */
+}
+
+/* Contenedor de los iconos de redes sociales */
+.menu_social {
+    /* background-color: antiquewhite; */
+    display: flex;                     /* Mostramos los iconos en fila */
+    flex-grow: 1;                      /* Crece un poco, pero menos que el menú principal */
+    justify-content: space-evenly;     /* Distribuimos los iconos con espacio igual alrededor */
+}
+
+/* Tamaño de los iconos de redes sociales */
+.menu_social a img{
+    width: 32px;     /* Ancho base de los iconos */
+    min-width: 28%;  /* No se reducirán por debajo de este porcentaje relativo al contenedor */
+}
+
+/* Header principal (el bloque grande con la imagen de fondo) */
+.mi_header{
+    width: 100% ;              /* Ocupa todo el ancho */
+    height: 100vh;             /* Ocupa toda la altura visible de la ventana */
+    min-height: 600px;         /* Nunca será más bajo de 600px */
+    max-height: 800px;         /* Ni más alto de 800px, aunque la ventana sea muy alta */
+    position: relative;        /* Referencia para el pseudo-elemento ::before */
+}
+
+/* Imagen de fondo + degradado + forma en pico en la parte inferior */
+.mi_header::before {
+    content: "";               /* Necesario para que el pseudo-elemento exista */
+    position: absolute;        /* Posicionamos respecto a .mi_header */
+    top: 0;
+    left: 0;
+    width: 100%;               /* Cubre todo el header */
+    height: 100%;
+    background-image: 
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,0.10) 0%,   /* Degradado suave arriba */
+            rgba(0,0,0,0.5) 100%   /* Más oscuro abajo */
+        ),
+        url("../img/fondo_header.jpg"); /* Imagen de fondo */
+    background-size: cover;    /* La imagen cubre todo el área, recortándose si hace falta */
+    clip-path: polygon(100% 0%, 100% 85%, 50% 95%, 0 85%, 0 0); /* Forma de pico en la parte inferior */
+    z-index: -1;               /* Se coloca por detrás del contenido del header */
+}
+
+/* Enlaces del menú principal en blanco */
+.menu_nav a {
+    text-decoration: none;   /* Quitamos subrayado */
+    color:  #FFFFFF;         /* Texto en blanco */
+}
+
+/* Contenedor del contenido central del header (título, texto y botón) */
+.header_container {
+    height: 75%;             /* Ocupa el 75% de la altura del header */
+    display: flex;           /* Usamos flexbox para centrar contenido */
+    flex-direction: column;  /* Apilamos elementos en columna */
+    justify-content: center; /* Centramos verticalmente */
+    align-items: center;     /* Centramos horizontalmente */
+    color: white;            /* Texto en blanco */
+    text-align: center;      /* Alineación centrada para el texto */
+    max-width: 800px;        /* No se hará más ancho de 800px */
+}
+
+/* Título principal del header */
+.header_title {
+    font-size: 3rem;       /* Tamaño grande del título */
+    padding: 20px 0;       /* Espacio arriba y abajo del título */
+}
+
+/* Párrafo descriptivo del header */
+.header_paragraph {
+    font-size: 1.2rem;     /* Tamaño de letra del texto */
+    line-height: 2rem;     /* Altura de línea para hacerlo más legible */
+    margin-bottom: 25px;   /* Espacio debajo del párrafo */
+}
+
+/* Botón de llamada a la acción (call to action) */
+.cta {
+    display: inline-block;    /* Permite padding y margen como un bloque, pero en línea */
+    background-color: blue;   /* Color de fondo del botón */
+    color: white;             /* Texto en blanco */
+    padding: 13px 30px;       /* Relleno interno del botón */
+    border-radius: 32px;      /* Bordes redondeados (forma de pastilla) */
+    text-decoration: none;    /* Sin subrayado en el enlace */
+}

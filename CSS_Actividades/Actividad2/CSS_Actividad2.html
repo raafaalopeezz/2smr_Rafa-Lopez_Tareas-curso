@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Actividad 2 CSS – 2º SMR</title>
+  <!--
+    OBJETIVO: Ejercicio para crear un styles.css desde cero.
+    Instrucciones: NO modifiques el HTML. Crea un archivo styles.css y enlázalo con el <link>.
+    Qué practicarás: colores y texto, márgenes y relleno, bordes, pseudoclases básicas,
+    combinadores simples (> y +), modelo de caja (box-sizing), y border-radius con 3 cajas.
+  -->
+  <link rel="stylesheet" href="./css/estilos.css" />
+</head>
+<body>
+  <header>
+    <h1>Actividad 2 de CSS</h1>
+    <nav>
+      <a href="#pseudoclases">Pseudoclases</a>
+      <a href="#espaciado">Espaciado y bordes</a>
+      <a href="#selectores">Selectores</a>
+      <a href="#selectores">Esquinas redondeadas</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 1) PSEUDOCLASES: hover, active, focus, first-child -->
+    <section id="pseudoclases">
+      <h2>1) Pseudoclases básicas</h2>
+      <p>
+        Aplica estilos con <code>:hover</code>, <code>:active</code>, <code>:focus</code> y <code>:first-child</code>.
+        (Ej.: cambiar color de fondo/Texto al pasar el ratón o al hacer clic.)
+      </p>
+      <a class="btn" href="#">Enlace interactivo</a>
+      <button class="btn-sec">Botón</button>
+      <label for="nombre">Nombre</label>
+      <input id="nombre" type="text" placeholder="Haz foco aquí" />      
+      <ul class="lista-demo">
+        <li>Primer ítem (debe verse distinto con :first-child)</li>
+        <li>Segundo ítem</li>
+        <li>Tercer ítem</li>
+      </ul>
+    </section>
+
+    <!-- 2) ESPACIADO Y BORDES: margin, padding, border, outline (opcional) -->
+    <section id="espaciado">
+      <h2>2) Espaciado y bordes</h2>
+      <article class="caja">
+        <h3>Caja de ejemplo</h3>
+        <p>Aplica <strong>margin</strong> fuera, <strong>padding</strong> dentro y un <strong>border</strong> visible. Puedes añadir <code>outline</code> para ver la diferencia.</p>
+      </article>
+    </section>
+
+    <!-- 3) SELECTORES COMBINADOS sencillos: > (hijo directo) y + (hermano adyacente) -->
+    <section id="selectores">
+      <h2>3) Selectores combinados simples</h2>
+      <p>Estiliza usando <code>#contenedor &gt; span</code> (hijo directo) y <code>#contenedor + p</code> (hermano adyacente).</p>
+      <div id="contenedor">
+        <span class="hijo">Soy hijo directo (span)</span>        
+        <div class="nieto">
+          <span>No soy hijo directo (soy nieto)</span>
+        </div>
+        <span>Yo también soy hijo directo</span>
+      </div>
+      <p class="adyacente">Párrafo adyacente al contenedor</p>
+      <p>Otro párrafo (no adyacente inmediato)</p>
+    </section>
+
+    <!-- 4) MODELO DE CAJA + BORDER-RADIUS con 3 cajas -->
+    <section id="radius">
+      <h2>4) Esquinas redondeadas</h2>
+      <p>Coloca estas 3 cajas en fila (puedes usar <code>flex</code> o <code>inline-block</code>):</p>
+      <ol>
+        <li>.b1 → solo la esquina superior izquierda redondeada</li>
+        <li>.b2 → solo la esquina superior derecha redondeada</li>
+        <li>.b3 → todas las esquinas redondeadas</li>
+      </ol>
+      <div class="fila">
+        <div class="box b1">1</div>
+        <div class="box b2">2</div>
+        <div class="box b3">3</div>
+      </div>
+      
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>Fecha:</strong> <span id="fecha">DD/MM/AAAA</span></p>
+    <p><strong>Alumno:</strong> <span id="alumno">(Escribe aquí el nombre)</span></p>
+  </footer>
+
+  <!--
+    PISTA para tu CSS (no obligatorio, solo guía):
+
+    body { font-family: system-ui, Arial, sans-serif; }
+    header, main, footer { max-width: 1000px; margin: 0 auto; }
+
+    nav a { text-decoration: none; margin-right: .5rem; }
+
+    .btn:hover { /* cambia color de fondo */ }
+    .btn:active { /* efecto clic */ }
+    input:focus { /* resalta el input */ }
+    .lista-demo li:first-child { /* distinto al resto */ }
+
+    .caja { margin: 1rem 0; padding: 1rem; border: 2px solid; }
+
+    #contenedor > span { /* estilo solo al hijo directo */ }
+    #contenedor + p { /* estilo al hermano adyacente */ }
+
+    .fila { display: flex; gap: .5rem; }
+    .box { width: 100px; height: 80px; border: 3px solid; text-align: center; line-height: 80px; }
+    .b1 { border-top-left-radius: 16px; }
+    .b2 { border-top-right-radius: 16px; }
+    .b3 { border-radius: 16px; }
+
+    footer { text-align: center; font-size: .9rem; }
+  -->
+</body>
+</html>

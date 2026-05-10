@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team ToDo+</title>
+  <link rel="stylesheet" href="./css/estilos.css">
+</head>
+
+<body>
+
+  <header>
+    <div id="inicio" class="logo-titulo">
+      <img class="logo" src="./img/logo.png" alt="Logo">
+      <div class="brand">
+        <h1>Team ToDo+</h1>
+        <p>Gestiona tareas de tu equipo</p>
+      </div>
+    </div>
+    <div class="login">
+      <a href="">Iniciar sesión</a>
+      <img src="./img/login.png" alt="">
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#">Historial tareas</a></li>
+      <li><a href="#">Usuarios</a></li>
+      <li><a href="#">Busca tareas</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- 1) FORMULARIO -->
+    <section class=" panel">
+      <h2>Asignar tarea</h2>
+
+      <form>
+        <label for="empleado">Empleado</label>
+        <select id="empleado">
+          <option>Pablo</option>
+          <option>Lucía</option>
+          <option>Hugo</option>
+          <option>Vera</option>
+        </select>
+
+        <label for="tarea">Tarea</label>
+        <select id="tarea">
+          <option>Montar un PC</option>
+          <option>Instalar Windows y drivers</option>
+          <option>Probar equipo (test rápido)</option>
+          <option>Limpieza y orden del mostrador</option>
+          <option>Preparar presupuesto</option>
+        </select>
+
+        <label for="nueva">Añadir tarea nueva</label>
+        <input id="nueva" type="text" placeholder="Escribe una tarea...">
+
+        <button type="button">Añadir</button>
+      </form>
+    </section>
+
+    <!-- 2) TARJETAS -->
+    <section class="seccion_central panel">
+      <h2>Empleados y tareas</h2>
+
+      <div class="tarjetas">
+
+        <article class="tarjeta">
+          <div class="hd_avatar">
+            <img class="avatar" src="https://i.pravatar.cc/100?img=12" alt="Avatar de Pablo">
+            <h3>Pablo</h3>
+          </div>
+          <ul>
+            <li>Tarea 1</li>
+            <li>Tarea 2</li>
+            <li>Tarea 3</li>
+            <li>Tarea 4</li>
+          </ul>
+          <button type="button">Ver más</button>
+        </article>
+
+        <article class="tarjeta">
+          <div class="hd_avatar">
+            <img class="avatar" src="https://i.pravatar.cc/100?img=47" alt="Avatar de Lucía">
+            <h3>Lucía</h3>
+          </div>
+          <ul>
+            <li>Tarea 1</li>
+            <li>Tarea 2</li>
+            <li>Tarea 3</li>
+            <li>Tarea 4</li>
+          </ul>
+          <button type="button">Ver más</button>
+        </article>
+
+        <article class="tarjeta">
+          <div class="hd_avatar">
+            <img class="avatar" src="https://i.pravatar.cc/100?img=33" alt="Avatar de Hugo">
+            <h3>Hugo</h3>
+          </div>
+          <ul>
+            <li>Tarea 1</li>
+            <li>Tarea 2</li>
+            <li>Tarea 3</li>
+            <li>Tarea 4</li>
+          </ul>
+          <button type="button">Ver más</button>
+        </article>
+
+        <article class="tarjeta">
+          <div class="hd_avatar">
+            <img class="avatar" src="https://i.pravatar.cc/100?img=5" alt="Avatar de Vera">
+            <h3>Vera</h3>
+          </div>
+          <ul>
+            <li>Tarea 1</li>
+            <li>Tarea 2</li>
+            <li>Tarea 3</li>
+            <li>Tarea 4</li>
+          </ul>
+          <button type="button">Ver más</button>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 3) ASIDE -->
+    <aside class="panel">
+      <h2>Ranking </h2>
+      <p>Best day of the week</p>
+      <ul>
+        <li> <span class="badge">1</span>Lucía - 18 ptos.</li>
+        <li> <span class="badge">2</span>Pablo - 16 ptos</li>
+        <li> <span class="badge">3</span>Hugo - 14 ptos</li>
+        <li> <span class="badge">4</span>Vera - 13 ptos</li>
+        <li> <span class="badge">5</span>Mario - 11 ptos</li>
+        <li> <span class="badge">6</span>Sara - 10 ptos</li>
+      </ul>
+    </aside>
+
+    <section class="panel contenedor-4">
+      <h2>Contenedor 4</h2>
+    </section>
+    <section class="panel contenedor-5">
+      <h2>Contenedor 5</h2>
+    </section>
+
+  </main>
+
+  <footer>
+    Nombre del Alumno - Copyright © 2026 <a href="www.iesmedinaazahara.es" target="_blank">IES Medina Azahara</a> -
+    Volver a <a href="#inicio"> Inicio</a>
+  </footer>
+
+</body>
+
+</html>

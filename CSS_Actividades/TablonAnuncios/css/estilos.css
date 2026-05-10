@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.contenedor {
+background-color: darkslategray;
+display: flex;
+gap: 20px;
+padding: 20px;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 700px;
+}
+
+.caja {
+  background-color: bisque;
+  width: 850px;
+  height: 650px;
+  font-size: 3rem;
+  color: darkslategray;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  
+}
+
+.caja span {
+  font-weight: bold;
+  color: red;
+}
+
+.caja li {
+  list-style:square;
+  padding-bottom: 30px;
+}

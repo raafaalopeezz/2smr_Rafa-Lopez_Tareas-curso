@@ -1,0 +1,109 @@
+/*vamos a crear una variable desde la pseudoclase root para poder acceder a
+estas variable desde cualquier parte del documento */
+:root{
+    --pading-container: 50px 0; /* arriba y abajo 100px, izquierda y derecha 0 */
+}
+/*reseteo de margenes y paddings y box-sizing para que el padding y border se
+incluyan dentro del width y height*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+/* Es el contenedor de la página */
+.mi_contenedor{
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto; /* centramos verticalmente el contenedor */
+    overflow: hidden; /* para que no se salga nada del contenedor, si se sale se esconde*/
+    padding: var(--pading-container);
+   /* background-color: black;*/
+}
+.mi_menu{
+    /*background: rgba(0,0,0,0.5);*/
+    display: flex; /* activamos flexbox */
+    flex-flow: row nowrap; /* los elementos van en fila y no se envuelven */
+    height: 100px;
+    align-items: center; /* alineamos los elementos verticalmente al centro */    
+    --padding-container: 0; /* anulamos el padding del contenedor solo para el menu */
+}   
+.logo{
+    flex: 0 1 auto; /* el logo ocupa su espacio natural */
+    max-width: 90px; /* maximo ancho del logo */
+    min-width: 60px;    
+    margin-left: 0;
+}
+.menu_nav{
+    flex: 2 1 70%; /* el menu ocupa 70% del espacio disponible */
+    display: flex;  
+    justify-content: space-evenly;  /* distribuimos los elementos del menu equitativamente */
+}
+.menu_nav a{
+    text-decoration: none;
+    color: white;
+}
+.menu_social{   
+    flex: 1 1 auto ; 
+    display: flex;
+    justify-content: space-evenly; /* distribuimos los elementos del menu social con espacio alrededor */
+
+}
+.menu_social a img{
+    width: 32px;
+    min-width: 28%;
+}
+.mi_header{
+   width: 100% ;
+   height: 100vh; /* altura de la ventana del navegador 100vh = full height of the viewport*/ 
+   min-height: 600px;
+   max-height: 800px;
+   position: relative;    
+ 
+}
+.mi_header::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;    
+    background-image: linear-gradient(
+        180deg,
+     rgba(0, 0, 0, 0.10) 0%,
+     rgba(0, 0, 0, 0.5) 100%), 
+     url("../img/fondo_header.jpg");
+     background-size: cover; /* para que la imagen cubra todo el espacio del header */
+    clip-path: polygon(100% 0, 100% 85%, 50% 95%, 0 85%, 0 0);
+    z-index: -1; /* para que el pseudo elemento quede detras del contenido del header */
+    
+}   
+
+.header_container{
+    height: 75%;
+    display: flex;
+    flex-direction: column; /* los elementos van en columna */
+    justify-content: center; /* centramos verticalmente */
+    color: white;
+    text-align: center;
+    max-width: 800px;
+}
+.header_title{
+    font-size: 3rem;
+    padding:  20px 0;
+}
+.header_paragraph{
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 2rem; /* espacio entre lineas */
+    margin-bottom: 25px;
+}
+.cta{
+    display: inline-block;
+    background-color: blue;
+    align-self: center; /* centramos el boton horizontalmente */
+    color: white;
+    padding: 13px 30px;
+    border-radius: 32px;
+    text-decoration: none;
+}
